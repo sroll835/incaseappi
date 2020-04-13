@@ -1,0 +1,9 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "username": "eco",
+    "password": "153420Mpb",
+    "database": "incasebd",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true
+  }
