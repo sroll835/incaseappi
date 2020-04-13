@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "type": "mysql",
     "host": "localhost",
     "username": "eco",
@@ -7,3 +8,14 @@
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
   }
+=======
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "root",
+  "database": "incase",
+  "entities": ["src/**/**.entity{.ts,.js}"],
+  "synchronize": true
+}
+>>>>>>> 7ce4d78b35d161cba20cae06db5b926f9e962709
