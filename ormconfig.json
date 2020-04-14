@@ -1,21 +1,9 @@
 {
-<<<<<<< HEAD
-    "type": "mysql",
-    "host": "localhost",
-    "username": "eco",
-    "password": "153420Mpb",
-    "database": "incasebd",
-    "entities": ["dist/**/*.entity{.ts,.js}"],
-    "synchronize": true
-  }
-=======
   "type": "mysql",
   "host": "localhost",
-  "port": 3306,
-  "username": "root",
-  "password": "root",
+  "username": "sebastian",
+  "password": "whfeQ5TBkKN3RGCq",
   "database": "incase",
-  "entities": ["src/**/**.entity{.ts,.js}"],
+  "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": true
 }
->>>>>>> 7ce4d78b35d161cba20cae06db5b926f9e962709
