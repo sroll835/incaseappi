@@ -13,14 +13,14 @@ export class UsuariosService {
     this.usersRepository.save(user);
   }
 
-  async getUsers(user: Usuario): Promise<Usuario[]> {
+  async getUsers(): Promise<Usuario[]> {
     return await this.usersRepository.find();
   }
 
-  async getUser(_id: number): Promise<Usuario[]> {
+  async getUser(_correo: string): Promise<Usuario[]> {
     return await this.usersRepository.find({
       select: ['nombre', 'apellido', 'correo', 'clave'],
-      where: [{ id: _id }],
+      where: [{ correo: _correo }],
     });
   }
 

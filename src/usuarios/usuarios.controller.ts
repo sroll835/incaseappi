@@ -14,6 +14,11 @@ import { Usuario } from './usuario.entity';
 export class UsuariosController {
   constructor(private service: UsuariosService) {}
 
+  @Get()
+  Getusers(){
+    return this.service.getUsers();
+  }
+
   @Get(':id')
   get(@Param() params) {
     return this.service.getUser(params.id);
