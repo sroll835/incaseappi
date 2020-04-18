@@ -9,12 +9,12 @@ export class AppController {
   constructor(private readonly appService: AppService, private authService: AuthService) {}
   
   
-  @UseGuards(LocalAuthGuard)
-  @Post('/auth/login')
-  async login(@Request() req) {
-    console.log("Login" + req.user);
-    return this.authService.login(req.user);
-  }
+  // @UseGuards(LocalAuthGuard)
+  // @Post('/auth/login')
+  // async login(@Request() req) {
+  //   console.log("Login" + req.user);
+  //   return this.authService.login(req.user);
+  // }
   @Get()
   getHello(): string {
     console.log("HOLA")

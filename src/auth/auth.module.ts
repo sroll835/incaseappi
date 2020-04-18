@@ -8,17 +8,19 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioService } from './usuario/usuario.service';
+import { AuthController } from './auth.controller';
 @Module({
   imports: [
     TypeOrmModule.forFeature([Usuario]),
     UsuariosModule,
     PassportModule,
     JwtModule.register({
-      secretOrPrivateKey:'secret12356789',
+      secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
   ],
   providers: [AuthService, LocalStrategy, UsuarioService],
   exports: [AuthService],
+  controllers: [AuthController],
 })
 export class AuthModule {}

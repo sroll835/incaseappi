@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "type": "mysql",
     "host": "localhost",
     "username": "eco",
@@ -8,13 +7,3 @@
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
   }
-=======
-  "type": "mysql",
-  "host": "localhost",
-  "username": "sebastian",
-  "password": "whfeQ5TBkKN3RGCq",
-  "database": "incase",
-  "entities": ["dist/**/*.entity{.ts,.js}"],
-  "synchronize": true
-}
->>>>>>> c2600537e3aaf240e72d33306a437d22d17f0db1
