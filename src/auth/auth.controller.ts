@@ -1,6 +1,7 @@
 import { Usuario } from './../usuarios/usuario.entity';
-import { Controller, Post, Body } from  '@nestjs/common';
+import { Controller, Post, Body, Get, Param, UseGuards } from  '@nestjs/common';
 import { AuthService } from  './auth.service';
+import { JwtAuthGuard } from './jwt-auth.guard';
 
 
 @Controller('auth')
@@ -15,5 +16,12 @@ export  class  AuthController {
     async register(@Body() user: Usuario): Promise<any> {
       return this.authService.register(user);
     }  
+
+  @UseGuards(JwtAuthGuard)
+  @Get(':id')
+   getProfile(@Param() params) {
+   console.log(params.id);
+    return this.authService.getProfile(params.id);
+  }
 
 }

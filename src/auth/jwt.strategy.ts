@@ -1,0 +1,23 @@
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { PassportStrategy } from '@nestjs/passport';
+import { Injectable } from '@nestjs/common';
+import { jwtConstants } from './constants';
+import { Usuario } from 'src/usuarios/usuario.entity';
+import { UsuarioService } from './usuario/usuario.service';
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor() {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+      secretOrKey: jwtConstants.secret,
+    });
+  }
+
+  async validate(payload: any) {
+    console.log("payloaf" + payload)
+    return  { nombre: payload.nombre, id_usuario: payload.id_usuario };;
+  }
+
+}
