@@ -26,7 +26,7 @@ export class AuthService {
           console.log("Claves coinciden");
          // console.log("Estoy aqui ")
           const payload = { nombre: userData.nombre, id_usuario: userData.id_usuario };
-          let payload2 = `${userData.nombre}${userData.id_usuario}`;
+          let payload2 = `${userData.nombre}_${userData.id_usuario}`;
          // console.log("Estoy aqui 2 ")
   
           const accessToken = this.jwtService.sign(payload);
