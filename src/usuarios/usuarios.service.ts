@@ -17,10 +17,10 @@ export class UsuariosService {
     return await this.usersRepository.find();
   }
 
-  async getUser(_correo: string): Promise<Usuario[]> {
+  async getUser(id_usuario: string): Promise<Usuario[]> {
     return await this.usersRepository.find({
       select: ['nombre', 'apellido', 'correo', 'clave'],
-      where: [{ correo: _correo }],
+      where: [{ id_usuario: id_usuario }],
     });
   }
 

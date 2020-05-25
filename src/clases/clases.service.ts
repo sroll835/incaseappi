@@ -19,7 +19,7 @@ export class ClasesService {
 
   async getClaseById(_id: number): Promise<Clase[]> {
     return await this.clasesRepository.find({
-      select: ['id_clase','titulo','descripcion','area','duracion'],
+      select: ['id_clase','titulo','descripcion','area',  'duracion'],
       where: [{ id: _id }],
     });
   }
