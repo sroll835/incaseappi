@@ -14,23 +14,28 @@ import { Clase } from './clase.entity';
 export class ClasesController {
   constructor(private service: ClasesService) {}
 
+  @Get()
+  getall() {
+    return this.service.getClases();
+  }
+
   @Get(':id')
   get(@Param() params) {
-    return this.service.getUser(params.id);
+    return this.service.getClaseById(params.id);
   }
 
   @Post()
-  create(@Body() user: Clase) {
-    return this.service.createUser(user);
+  create(@Body() clase: Clase) {
+    return this.service.createClase(clase);
   }
 
   @Put()
-  update(@Body() user: Clase) {
-    return this.service.updateUser(user);
+  update(@Body() clase: Clase) {
+    return this.service.updateClase(clase);
   }
 
   @Delete(':id')
   deleteUser(@Param() params) {
-    return this.service.deleteUser(params.id);
+    return this.service.deleteClase(params.id);
   }
 }

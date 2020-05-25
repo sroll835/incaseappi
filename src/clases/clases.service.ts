@@ -6,29 +6,29 @@ import { Clase } from './clase.entity';
 @Injectable()
 export class ClasesService {
   constructor(
-    @InjectRepository(Clase) private usersRepository: Repository<Clase>,
+    @InjectRepository(Clase) private clasesRepository: Repository<Clase>,
   ) {}
 
-  async createUser(user: Clase) {
-    this.usersRepository.save(user);
+  async createClase(clase: Clase) {
+    this.clasesRepository.save(clase);
   }
 
-  async getUsers(user: Clase): Promise<Clase[]> {
-    return await this.usersRepository.find();
+  async getClases(): Promise<Clase[]> {
+    return await this.clasesRepository.find();
   }
 
-  async getUser(_id: number): Promise<Clase[]> {
-    return await this.usersRepository.find({
-      select: ['titulo', 'duracion'],
+  async getClaseById(_id: number): Promise<Clase[]> {
+    return await this.clasesRepository.find({
+      select: ['id_clase','titulo','descripcion','area','duracion'],
       where: [{ id: _id }],
     });
   }
 
-  async updateUser(user: Clase) {
-    this.usersRepository.save(user);
+  async updateClase(clase: Clase) {
+    this.clasesRepository.save(clase);
   }
 
-  async deleteUser(user: Clase) {
-    this.usersRepository.delete(user);
+  async deleteClase(clase: Clase) {
+    this.clasesRepository.delete(clase);
   }
 }
