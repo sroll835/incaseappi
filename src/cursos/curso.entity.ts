@@ -18,6 +18,9 @@ export class Curso {
 
   @Column()
   numero_clases: number;
+  
+  @Column({ length: 255 })
+  image_curso: string;
 
   @OneToMany(type => Clase, clase => clase.curso, {eager:true})
   clases: Clase[];

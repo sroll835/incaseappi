@@ -19,7 +19,7 @@ export class CursosService {
 
   async getCursoById(_id: number): Promise<Curso[]> {
     return await this.cursoRepository.find({
-      select: ['titulo', 'descripcion', 'duracion', 'numero_clases'],
+      select: ['titulo', 'descripcion', 'duracion', 'numero_clases','image_curso'],
       where: [{ id: _id }],
     });
   }

@@ -24,6 +24,14 @@ export class UsuariosService {
     });
   }
 
+  async getCursosByUserId(id_usuario: string): Promise<Usuario[]> {
+    return await this.usersRepository.createQueryBuilder("usuario")
+    .leftJoinAndSelect("usuario.cursos", "curso")
+    .where("usuario.id_usuario = :id", { id: id_usuario})
+    .getMany();
+  }
+  
+  
   async updateUser(user: Usuario) {
     this.usersRepository.save(user);
   }

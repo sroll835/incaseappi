@@ -6,6 +6,7 @@ import {
   Put,
   Delete,
   Param,
+  Res,
 } from '@nestjs/common';
 import { CursosService } from './cursos.service';
 import { Curso } from './curso.entity';
@@ -24,6 +25,13 @@ export class CursosController {
     return this.service.getCursoById(params.id);
   }
 
+  
+  @Get('imagen/:fileId')
+  async serveImageCurso(@Param('fileId') fileId, @Res() res): Promise<any> {
+    console.log("Wtf");
+    res.sendFile(fileId, { root: 'storage' });
+  }
+
   @Post()
   create(@Body() curso: Curso) {
     return this.service.createCurso(curso);
@@ -38,4 +46,6 @@ export class CursosController {
   deleteUser(@Param() params) {
     return this.service.deleteCursor(params.id);
   }
+
+
 }

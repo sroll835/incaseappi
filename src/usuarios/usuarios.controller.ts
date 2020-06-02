@@ -23,7 +23,11 @@ export class UsuariosController {
   get(@Param() params) {
     return this.service.getUser(params.id);
   }
-
+  
+  @Get('/cursos/:id')
+  getcursosbyUserId(@Param() params){
+    return this.service.getCursosByUserId(params.id);
+  }
   @Post()
   create(@Body() user: Usuario) {
     return this.service.createUser(user);
