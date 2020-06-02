@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Curso } from './../cursos/curso.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Clase {
@@ -16,4 +17,8 @@ export class Clase {
 
   @Column({ length: 10 })
   duracion: string;
+  
+  @ManyToOne(type=> Curso, curso => curso.clases)
+  curso : Curso;
+
 }

@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Usuario } from 'src/usuarios/usuario.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany } from 'typeorm';
+import { Clase } from 'src/clases/clase.entity';
 
 @Entity()
 export class Curso {
@@ -16,4 +18,14 @@ export class Curso {
 
   @Column()
   numero_clases: number;
+  
+  @Column({ length: 255 })
+  image_curso: string;
+
+  @OneToMany(type => Clase, clase => clase.curso, {eager:true})
+  clases: Clase[];
+
+  @ManyToMany(type => Usuario, usuario => usuario.cursos)
+    usuarios: Usuario[];
+
 }

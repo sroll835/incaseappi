@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Curso } from './../cursos/curso.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class Usuario {
@@ -16,4 +17,8 @@ export class Usuario {
 
   @Column({ length: 30 })
   clave: string;
+  
+  @ManyToMany(type => Curso, curso => curso.usuarios,{eager:true})
+  @JoinTable()
+  cursos: Curso[];
 }
