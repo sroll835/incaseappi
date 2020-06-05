@@ -1,5 +1,11 @@
 import { Curso } from './../cursos/curso.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 
 @Entity()
 export class Usuario {
@@ -15,10 +21,17 @@ export class Usuario {
   @Column({ length: 70 })
   correo: string;
 
+  @Column({ length: 50 })
+  imagen: string;
+
   @Column({ length: 30 })
   clave: string;
-  
-  @ManyToMany(type => Curso, curso => curso.usuarios,{eager:true})
+
+  @ManyToMany(
+    type => Curso,
+    curso => curso.usuarios,
+    { eager: true },
+  )
   @JoinTable()
   cursos: Curso[];
 }
