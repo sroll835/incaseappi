@@ -23,7 +23,12 @@ export class CursosService {
       where: [{ id: _id }],
     });
   }
-
+  async getCursowithClasesById(id_curso:number) : Promise<Curso[]>{
+    return await this.cursoRepository.createQueryBuilder("curso")
+    .leftJoinAndSelect("curso.clases","clase")
+    .where("curso.id_curso =:id",{ id: id_curso})
+    .getMany();
+  }
   async updateCurso(curso: Curso) {
     this.cursoRepository.save(curso);
   }

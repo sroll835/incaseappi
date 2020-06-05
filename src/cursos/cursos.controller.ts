@@ -22,8 +22,10 @@ export class CursosController {
   
   @Get(':id')
   get(@Param() params) {
-    return this.service.getCursoById(params.id);
+    return this.service.getCursowithClasesById(params.id);
   }
+
+
 
   
   @Get('imagen/:fileId')
